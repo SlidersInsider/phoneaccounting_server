@@ -9,9 +9,9 @@ import javax.persistence.Id
 class SdCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var sdcard_id: Int = 0
-    var in_phone: Boolean = false
-    var phone_id: Int = 0
-    var serial_number: String = ""
+    var sdcardId: Int = 0
+    var inPhone: Boolean = false
+    var phoneId: Int = 0
+    var serialNumber: String = ""
     var size: String = ""
 }

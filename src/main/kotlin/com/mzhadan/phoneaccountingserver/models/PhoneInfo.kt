@@ -9,16 +9,16 @@ import javax.persistence.Id
 class PhoneInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var phone_id: Int = 0
+    var phoneId: Int = 0
     var model: String = ""
     var manufacturer: String = ""
-    var os_version: String = ""
+    var osVersion: String = ""
     var firmware: String = ""
-    var supported_arch: String = ""
+    var supportedArch: String = ""
     var user: String = ""
-    var sim_slots_count: Int = 0
-    var simcard1_id: Int = 0
-    var simcard2_id: Int = 0
-    var sd_slots_count: Int = 0
-    var sdcard_id: Int = 0
+    var simSlotsCount: Int = 0
+    var simcard1Id: Int = 0
+    var simcard2Id: Int = 0
+    var sdSlotsCount: Int = 0
+    var sdcardId: Int = 0
 }

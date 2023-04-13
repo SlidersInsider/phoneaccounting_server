@@ -9,9 +9,9 @@ import javax.persistence.Id
 class SimCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var simcard_id: Int = 0
-    var in_phone: Boolean = false
-    var phone_id: Int = -1
+    var simcardId: Int = 0
+    var inPhone: Boolean = false
+    var phoneId: Int = -1
     var number: String = ""
     var accounts: String = ""
 }
