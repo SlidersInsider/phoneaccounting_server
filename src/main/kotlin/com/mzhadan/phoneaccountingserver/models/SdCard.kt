@@ -6,12 +6,13 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class SdCard {
+class SdCard(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var sdcardId: Int = 0
-    var inPhone: Boolean = false
-    var phoneId: Int = 0
-    var serialNumber: String = ""
-    var size: String = ""
+    var sdcardId: Int,
+    var inPhone: Int,
+    var phoneId: Int,
+    var serialNumber: String,
+    var size: String
+) {
 }

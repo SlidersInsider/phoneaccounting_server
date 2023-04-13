@@ -6,12 +6,13 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class SimCard {
+class SimCard(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var simcardId: Int = 0
-    var inPhone: Boolean = false
-    var phoneId: Int = -1
-    var number: String = ""
-    var accounts: String = ""
+    var simcardId: Int,
+    var inPhone: Int,
+    var phoneId: Int,
+    var number: String,
+    var accounts: String
+) {
 }
