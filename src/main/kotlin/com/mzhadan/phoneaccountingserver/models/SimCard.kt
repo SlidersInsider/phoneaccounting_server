@@ -8,13 +8,12 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "simcards")
-class SimCard(
+data class SimCard(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var simcardId: Int,
     var inPhone: Int,
-    var phoneId: Int,
+    var phoneName: String,
     var number: String,
     var accounts: String
-) {
-}
+)

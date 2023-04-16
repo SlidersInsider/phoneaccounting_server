@@ -8,13 +8,12 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "sdcards")
-class SdCard(
+data class SdCard(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var sdcardId: Int,
     var inPhone: Int,
-    var phoneId: Int,
+    var phoneName: String,
     var serialNumber: String,
     var size: String
-) {
-}
+)

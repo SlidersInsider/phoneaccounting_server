@@ -8,7 +8,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "phone_info")
-class PhoneInfo(
+data class PhoneInfo(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var phoneId: Int,
@@ -19,9 +19,8 @@ class PhoneInfo(
     var supportedArch: String,
     var user: String,
     var simSlotsCount: Int,
-    var simcard1Id: Int,
-    var simcard2Id: Int,
+    var simcard1: String,
+    var simcard2: String,
     var sdSlotsCount: Int,
-    var sdcardId: Int
-) {
-}
+    var sdcard: String
+)
