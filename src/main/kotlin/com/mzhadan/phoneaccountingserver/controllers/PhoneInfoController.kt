@@ -41,7 +41,8 @@ class PhoneInfoController(
         return if (phoneInfo.isPresent) {
             val mainInfo = ArrayList<Phone>()
             phoneInfo.get().forEach {
-                mainInfo.add(Phone(
+                mainInfo.add(
+                    Phone(
                     it.model, it.manufacturer, it.osVersion,
                     it.user, it.simcard1, it.simcard2, it.sdcard)
                 )
@@ -58,5 +59,15 @@ class PhoneInfoController(
         } else {
             ResponseEntity<List<PhoneInfo>>(HttpStatus.BAD_REQUEST)
         }
+    }
+
+    @PostMapping("/add/phone")
+    fun addNewPhoneInfo(@RequestBody phoneInfo: PhoneInfo) {
+        phoneInfoService.addNewPhoneInfo(phoneInfo)
+    }
+
+    @PutMapping("/update/user/{id}")
+    fun updatePhoneUser(@PathVariable id: Int, @RequestBody user: String) {
+        phoneInfoService.updatePhoneUser(user, id)
     }
 }
