@@ -1,6 +1,5 @@
 package com.mzhadan.phoneaccountingserver.services
 
-import com.mzhadan.phoneaccountingserver.models.Phone
 import com.mzhadan.phoneaccountingserver.models.PhoneInfo
 import com.mzhadan.phoneaccountingserver.repository.PhoneInfoRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,6 +20,8 @@ class PhoneInfoService(
         phoneInfoRepository.getPhonesInfoByManufacturerName(manufacturer)
 
     fun addNewPhoneInfo(phoneInfo: PhoneInfo) = phoneInfoRepository.save(phoneInfo)
+
+    fun deletePhoneInfo(phoneId: Int) = phoneInfoRepository.deleteById(phoneId)
 
     @Transactional
     fun updatePhoneUser(user: String, phoneId: Int) = phoneInfoRepository.updatePhoneUser(user, phoneId)

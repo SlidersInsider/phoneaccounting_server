@@ -1,6 +1,7 @@
 package com.mzhadan.phoneaccountingserver.models
 
 data class Phone(
+    var phoneId: Int,
     var model: String,
     var manufacturer: String,
     var osVersion: String,

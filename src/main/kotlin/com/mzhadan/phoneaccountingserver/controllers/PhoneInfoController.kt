@@ -43,7 +43,7 @@ class PhoneInfoController(
             phoneInfo.get().forEach {
                 mainInfo.add(
                     Phone(
-                    it.model, it.manufacturer, it.osVersion,
+                    it.phoneId, it.model, it.manufacturer, it.osVersion,
                     it.user, it.simcard1, it.simcard2, it.sdcard)
                 )
             }
@@ -69,5 +69,10 @@ class PhoneInfoController(
     @PutMapping("/update/user/{id}")
     fun updatePhoneUser(@PathVariable id: Int, @RequestBody user: String) {
         phoneInfoService.updatePhoneUser(user, id)
+    }
+
+    @DeleteMapping("/delete/phone/{id}")
+    fun deletePhoneInfo(@PathVariable id: Int) {
+        phoneInfoService.deletePhoneInfo(id)
     }
 }
