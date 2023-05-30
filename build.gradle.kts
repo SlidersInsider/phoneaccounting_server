@@ -56,12 +56,23 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-//tasks.withType<Jar> {
-//    manifest {
-//        attributes["Main-Class"] = application.mainClass.get()
-//    }
-//}
-
 springBoot {
     mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
 }
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = springBoot.mainClass.get()
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
+}
+
+
