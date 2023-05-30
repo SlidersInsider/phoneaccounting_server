@@ -21,7 +21,7 @@ configurations {
 }
 
 application {
-    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplication")
+    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
 }
 
 java {
@@ -56,6 +56,8 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-springBoot {
-    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplication")
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = application.mainClass.get()
+    }
 }
