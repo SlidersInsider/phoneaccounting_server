@@ -20,7 +20,7 @@ configurations {
 }
 
 application {
-    mainClass.set("com.mzhadan.PhoneAccountingServerApplication")
+    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplication")
 }
 
 java {
