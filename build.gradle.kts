@@ -23,15 +23,6 @@ application {
     mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplication")
 }
 
-java {
-    withSourcesJar()
-    withJavadocJar()
-    manifest {
-        attributes(application.mainClass.get())
-    }
-}
-
-
 repositories {
     mavenCentral()
 }
