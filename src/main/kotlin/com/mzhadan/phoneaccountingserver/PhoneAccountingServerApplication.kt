@@ -4,8 +4,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class PhoneAccountingServerApplication
+class PhoneAccountingServerApplication {
+    fun main(args: Array<String>) {
+        runApplication<PhoneAccountingServerApplication>(*args)
+    }
+}
 
 fun main(args: Array<String>) {
     runApplication<PhoneAccountingServerApplication>(*args)
 }
+
+
