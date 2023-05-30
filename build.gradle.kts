@@ -3,8 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.7.10"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
-    id("application")
-    id("java")
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
@@ -20,15 +18,15 @@ configurations {
     }
 }
 
-application {
-    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
-}
+//application {
+//    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
+//}
 
-java {
-    manifest {
-        attributes["Main-Class"] = application.mainClass.get()
-    }
-}
+//java {
+//    manifest {
+//        attributes["Main-Class"] = application.mainClass.get()
+//    }
+//}
 
 repositories {
     mavenCentral()
@@ -56,23 +54,23 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-springBoot {
-    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
-}
+//springBoot {
+//    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
+//}
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = springBoot.mainClass.get()
+        attributes["Main-Class"] = "com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt"
     }
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-//    from(sourceSets.main.get().output)
-//
-//    dependsOn(configurations.runtimeClasspath)
-//    from({
-//        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-//    })
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
 }
 
 
