@@ -4,13 +4,14 @@ plugins {
     id("org.springframework.boot") version "2.7.10"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
     id("application")
+    id("java")
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
 }
 
 group = "com.mzhadan"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.2-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
@@ -21,6 +22,12 @@ configurations {
 
 application {
     mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplication")
+}
+
+java {
+    manifest {
+        attributes["Main-Class"] = application.mainClass.get()
+    }
 }
 
 repositories {
@@ -47,4 +54,10 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = application.mainClass.get()
+    }
 }
