@@ -56,8 +56,6 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-tasks.withType<Jar> {
-    manifest {
-        attributes["Main-Class"] = application.mainClass.get()
-    }
+springBoot {
+    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplication")
 }
