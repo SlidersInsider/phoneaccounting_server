@@ -49,14 +49,14 @@ tasks.withType<Jar> {
         attributes["Main-Class"] = "com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt"
     }
 
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-    from(sourceSets.main.get().output)
-
-    dependsOn(configurations.runtimeClasspath)
-    from({
-        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-    })
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//
+//    from(sourceSets.main.get().output)
+//
+//    dependsOn(configurations.runtimeClasspath)
+//    from({
+//        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+//    })
 }
 
 
