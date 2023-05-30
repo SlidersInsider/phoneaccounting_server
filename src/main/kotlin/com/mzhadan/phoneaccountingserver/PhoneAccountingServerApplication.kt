@@ -5,8 +5,10 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication
 class PhoneAccountingServerApplication {
-    fun main(args: Array<String>) {
-        runApplication<PhoneAccountingServerApplication>(*args)
+    companion object {
+        fun main(args: Array<String>) {
+            runApplication<PhoneAccountingServerApplication>(*args)
+        }
     }
 }
 
