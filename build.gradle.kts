@@ -20,8 +20,17 @@ configurations {
 }
 
 application {
-    mainClassName = "com.mzhadan.PhoneAccountingServerApplication"
+    mainClass.set("com.mzhadan.PhoneAccountingServerApplication")
 }
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+    manifest {
+        attributes(application.mainClass.get())
+    }
+}
+
 
 repositories {
     mavenCentral()
