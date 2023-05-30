@@ -18,16 +18,6 @@ configurations {
     }
 }
 
-//application {
-//    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
-//}
-
-//java {
-//    manifest {
-//        attributes["Main-Class"] = application.mainClass.get()
-//    }
-//}
-
 repositories {
     mavenCentral()
 }
@@ -37,8 +27,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("mysql:mysql-connector-java:8.0.28")
-    implementation("com.mysql:mysql-connector-j")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("com.mysql:mysql-connector-j")
     annotationProcessor("org.projectlombok:lombok")
@@ -55,10 +43,6 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
-
-//springBoot {
-//    mainClass.set("com.mzhadan.phoneaccountingserver.PhoneAccountingServerApplicationKt")
-//}
 
 tasks.withType<Jar> {
     manifest {
