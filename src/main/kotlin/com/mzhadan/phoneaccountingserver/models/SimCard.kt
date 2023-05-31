@@ -12,8 +12,8 @@ data class SimCard(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var simcardId: Int,
-    var inPhone: Int,
-    var phoneName: String,
+    var operatorName: String,
     var number: String,
-    var accounts: String
+    var isLocked: String,
+    var inPhone: String
 )

@@ -44,7 +44,7 @@ class PhoneInfoController(
                 mainInfo.add(
                     Phone(
                     it.phoneId, it.model, it.manufacturer, it.osVersion,
-                    it.user, it.simcard1, it.simcard2, it.sdcard)
+                    it.user, it.simcard1, it.simcard2, it.sdcardSerialNumber)
                 )
             }
             ResponseEntity<List<Phone>>(mainInfo, HttpStatus.OK)

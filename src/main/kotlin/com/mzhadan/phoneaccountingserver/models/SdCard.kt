@@ -12,8 +12,8 @@ data class SdCard(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var sdcardId: Int,
-    var inPhone: Int,
-    var phoneName: String,
+    var name: String,
     var serialNumber: String,
-    var size: String
+    var size: String,
+    var inPhone: String,
 )

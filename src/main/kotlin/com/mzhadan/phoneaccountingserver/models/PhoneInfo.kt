@@ -15,6 +15,7 @@ data class PhoneInfo(
     var model: String,
     var manufacturer: String,
     var osVersion: String,
+    var convertedOsVersion: String,
     var firmware: String,
     var supportedArch: String,
     var user: String,
@@ -22,5 +23,5 @@ data class PhoneInfo(
     var simcard1: String,
     var simcard2: String,
     var sdSlotsCount: Int,
-    var sdcard: String
+    var sdcardSerialNumber: String
 )
