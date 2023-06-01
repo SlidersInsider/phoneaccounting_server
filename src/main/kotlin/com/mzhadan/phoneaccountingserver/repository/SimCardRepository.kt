@@ -24,7 +24,7 @@ interface SimCardRepository: JpaRepository<SimCard, Int> {
 
     @Modifying
     @Query(
-            value = "update simcards s set s.isLocked=?1 where s.simcardId=?2",
+            value = "update simcards s set s.locked=?1 where s.simcardId=?2",
             nativeQuery = true
     )
     fun updateSimCardIsLocked(isLocked: String, simcardId: Int)

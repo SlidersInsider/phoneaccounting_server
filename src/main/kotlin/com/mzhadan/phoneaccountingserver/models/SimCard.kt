@@ -13,8 +13,8 @@ data class SimCard(
     var operatorName: String,
     @Column(name = "number")
     var number: String,
-    @Column(name = "isLocked")
-    var isLocked: String,
+    @Column(name = "locked")
+    var locked: String,
     @Column(name = "inPhone")
     var inPhone: String
 )
