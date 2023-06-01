@@ -1,6 +1,7 @@
 package com.mzhadan.phoneaccountingserver.repository
 
 import com.mzhadan.phoneaccountingserver.models.Notification
+import com.mzhadan.phoneaccountingserver.models.PhoneInfo
 import com.mzhadan.phoneaccountingserver.models.SdCard
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
@@ -21,4 +22,10 @@ interface SdCardRepository: JpaRepository<SdCard, Int> {
             nativeQuery = true
     )
     fun getSdCardById(sdcardId: Int): Optional<List<SdCard>>
+
+    @Query(
+            value = "select * from sdcards s where s.serialNumber=?1",
+            nativeQuery = true
+    )
+    fun getSdCardBySerialNumber(serialNumber: String): Optional<List<SdCard>>
 }

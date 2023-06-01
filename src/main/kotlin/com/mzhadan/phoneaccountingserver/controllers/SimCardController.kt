@@ -1,6 +1,7 @@
 package com.mzhadan.phoneaccountingserver.controllers
 
 import com.mzhadan.phoneaccountingserver.models.Notification
+import com.mzhadan.phoneaccountingserver.models.SdCard
 import com.mzhadan.phoneaccountingserver.models.SimCard
 import com.mzhadan.phoneaccountingserver.services.SimCardService
 import org.springframework.beans.factory.annotation.Autowired
@@ -48,5 +49,11 @@ class SimCardController(
     @DeleteMapping("/delete/simcard/{id}")
     fun deleteSimCard(@PathVariable id: Int) {
         simCardService.deleteSimCard(id)
+    }
+
+    @GetMapping("number/{number}")
+    fun getByNumber(@PathVariable number: String): ResponseEntity<List<SimCard>> {
+        val simcard: Optional<List<SimCard>> = simCardService.getSimCardByNumber(number)
+        return checkResponseData(simcard)
     }
 }

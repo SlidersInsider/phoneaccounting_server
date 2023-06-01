@@ -23,4 +23,7 @@ class SimCardService(
 
     @Transactional
     fun updateSimCardIsLocked(isLocked: String, simcardId: Int) = simCardRepository.updateSimCardIsLocked(isLocked, simcardId)
+
+    fun getSimCardByNumber(number: String): Optional<List<SimCard>> =
+            simCardRepository.getSimCardByNumber(number)
 }

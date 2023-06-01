@@ -1,6 +1,7 @@
 package com.mzhadan.phoneaccountingserver.services
 
 import com.mzhadan.phoneaccountingserver.models.Notification
+import com.mzhadan.phoneaccountingserver.models.PhoneInfo
 import com.mzhadan.phoneaccountingserver.models.SdCard
 import com.mzhadan.phoneaccountingserver.repository.SdCardRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,4 +20,7 @@ class SdCardService(
     fun addNewSdCard(sdCard: SdCard) = sdCardRepository.save(sdCard)
 
     fun deleteSdCard(sdCardId: Int) = sdCardRepository.deleteById(sdCardId)
+
+    fun getSdCardBySerialNumber(serialNumber: String): Optional<List<SdCard>> =
+            sdCardRepository.getSdCardBySerialNumber(serialNumber)
 }

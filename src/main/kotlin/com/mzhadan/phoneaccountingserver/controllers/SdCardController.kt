@@ -1,5 +1,6 @@
 package com.mzhadan.phoneaccountingserver.controllers
 
+import com.mzhadan.phoneaccountingserver.models.PhoneInfo
 import com.mzhadan.phoneaccountingserver.models.SdCard
 import com.mzhadan.phoneaccountingserver.models.SimCard
 import com.mzhadan.phoneaccountingserver.services.SdCardService
@@ -41,7 +42,13 @@ class SdCardController(
     }
 
     @DeleteMapping("/delete/sdcard/{id}")
-    fun deletePhoneInfo(@PathVariable id: Int) {
+    fun deleteSdCard(@PathVariable id: Int) {
         sdCardService.deleteSdCard(id)
+    }
+
+    @GetMapping("serialNumber/{serialNumber}")
+    fun getBySerialNumber(@PathVariable serialNumber: String): ResponseEntity<List<SdCard>> {
+        val sdcard: Optional<List<SdCard>> = sdCardService.getSdCardBySerialNumber(serialNumber)
+        return checkResponseData(sdcard)
     }
 }

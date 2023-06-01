@@ -28,4 +28,10 @@ interface SimCardRepository: JpaRepository<SimCard, Int> {
             nativeQuery = true
     )
     fun updateSimCardIsLocked(isLocked: String, simcardId: Int)
+
+    @Query(
+            value = "select * from simcards s where s.number=?1",
+            nativeQuery = true
+    )
+    fun getSimCardByNumber(number: String): Optional<List<SimCard>>
 }
