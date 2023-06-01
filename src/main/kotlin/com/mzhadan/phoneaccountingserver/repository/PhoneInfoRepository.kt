@@ -23,14 +23,14 @@ interface PhoneInfoRepository: JpaRepository<PhoneInfo, Int> {
     fun getPhonesInfoByManufacturerName(manufacturer: String): Optional<List<PhoneInfo>>
 
     @Query(
-        value = "select * from phone_info p where p.phone_id=?1",
+        value = "select * from phone_info p where p.phoneId=?1",
         nativeQuery = true
     )
     fun getPhonesInfoById(phoneId: Int): Optional<List<PhoneInfo>>
 
     @Modifying
     @Query(
-        value = "update phone_info p set p.user=?1 where p.phone_id=?2",
+        value = "update phone_info p set p.user=?1 where p.phoneId=?2",
         nativeQuery = true
     )
     fun updatePhoneUser(user: String, phoneId: Int)
