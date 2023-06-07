@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User profile</title>
+</head>
+<body>
+  <h1>User profile</h1>
+  <p>Username: <span th:text="${user.login}"></span></p>
+  <p>Password: <span th:text="${user.password}"></span></p>
+  <p>ApiKey: <span th:text="${user.apiKey}"></span></p>
+  <form action="/users/choose" method="get">
+    <div>
+      <button type="submit">Exit</button>
+    </div>
+  </form>
+</body>
+</html>

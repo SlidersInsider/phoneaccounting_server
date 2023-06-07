@@ -9,10 +9,10 @@ data class User(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "userId")
         var userId: Int,
-        @Column(name = "login")
+        @Column(name = "login", nullable = false, unique = true)
         var login: String,
-        @Column(name = "password")
+        @Column(name = "password", nullable = false)
         var password: String,
-        @Column(name = "apiKey")
+        @Column(name = "apiKey", nullable = false, unique = true)
         var apiKey: String
 )
